@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Serialization;
 
 public class Agent : MonoBehaviour {
@@ -18,6 +19,8 @@ public class Agent : MonoBehaviour {
     public State idleState;
 
     [Header("State debugging:")] public string stateName = "";
+    [field: SerializeField]
+    private UnityEvent onRespawnRequired { get; set; }
 
     private void Awake() {
         agentInput = GetComponentInParent<PlayerInput>();
@@ -65,5 +68,10 @@ public class Agent : MonoBehaviour {
         if (previousState == null || previousState.GetType() != currentState.GetType()) {
             stateName = currentState.GetType().ToString();
         }
+    }
+
+    public void AgentDied() {
+        Debug.Log("Player Died!");
+        onRespawnRequired?.Invoke();
     }
 }
