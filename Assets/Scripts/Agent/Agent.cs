@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
+using WeaponSystem;
 
 public class Agent : MonoBehaviour {
 
@@ -17,6 +18,9 @@ public class Agent : MonoBehaviour {
 
     public State currentState = null, previousState = null;
     public State idleState;
+    
+    [HideInInspector]
+    public AgentWeaponManager agentWeapon;
 
     [Header("State debugging:")] public string stateName = "";
     [field: SerializeField]
@@ -29,6 +33,7 @@ public class Agent : MonoBehaviour {
         agentRenderer = GetComponentInChildren<AgentRenderer>();
         groundDetector = GetComponentInChildren<GroundDetector>();
         climbingDetector = GetComponentInChildren<ClimbingDetector>();
+        agentWeapon = GetComponentInChildren<AgentWeaponManager>();
 
         State[] states = GetComponentsInChildren<State>();
         foreach (var varState in states) {
