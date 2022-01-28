@@ -1,13 +1,17 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Utils;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class MovementState : State {
     
     [SerializeField]
     protected MovementData movementData;
     public State idleState;
+
+    public UnityEvent onStep;
 
     private void Awake() {
         movementData = GetComponentInParent<MovementData>();
@@ -16,9 +20,14 @@ public class MovementState : State {
     protected override void EnterState() {
         base.EnterState();
         Agent.animationManager.PlayAnimation(AnimationType.Run);
+        Agent.animationManager.onAnimationAction.AddListener(() => onStep.Invoke());
         movementData.horizontalMovementDirection = 0;
         movementData.currentSpeed = 0;
         movementData.currentVelocity = Vector2.zero;
+    }
+
+    protected override void ExitState() {
+        Agent.animationManager.ResetEvents();
     }
 
     public override void StateUpdate() {

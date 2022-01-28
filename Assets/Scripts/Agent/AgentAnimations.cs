@@ -1,13 +1,18 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Utils;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class AgentAnimations : MonoBehaviour {
-    private Animator animator;
+    private Animator _animator;
+    
+    public UnityEvent onAnimationAction;
+    public UnityEvent onAnimationEnd;
 
     private void Awake() {
-        animator = GetComponent<Animator>();
+        _animator = GetComponent<Animator>();
     }
 
     public void PlayAnimation(AnimationType animationType) {
@@ -35,30 +40,34 @@ public class AgentAnimations : MonoBehaviour {
                 break;
             case AnimationType.Land:
                 break;
+            default:
+                Debug.LogError($"No Animation found:: {nameof(animationType)}");
+                throw new NoAnimationFoundException(nameof(animationType), animationType, null);
         }
     }
 
-    public void Play(string name) {
-        animator.Play(name, -1, 0f);
+    private void Play(string animName) {
+        _animator.Play(animName, -1, 0f);
     }
     
     public void StartAnimation() {
-        animator.enabled = true;
+        _animator.enabled = true;
     }
 
     public void StopAnimation() {
-        animator.enabled = false;
+        _animator.enabled = false;
     }
-}
 
-public enum AnimationType {
-    Die,
-    Hit,
-    Idle,
-    Attack,
-    Run,
-    Jump,
-    Fall,
-    Climb,
-    Land
+    public void ResetEvents() {
+        onAnimationAction.RemoveAllListeners();
+        onAnimationEnd.RemoveAllListeners();
+    }
+
+    public void InvokeAnimationAction() {
+        onAnimationAction?.Invoke();
+    }
+
+    public void InvokeAnimationEnd() {
+        onAnimationEnd?.Invoke();
+    }
 }
