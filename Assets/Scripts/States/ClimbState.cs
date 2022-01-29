@@ -38,4 +38,8 @@ public class ClimbState : State {
         Agent.rb.gravityScale = _previousGravityScale;
         Agent.animationManager.StartAnimation();
     }
+
+    protected override void HandleAttack() {
+        // Prevent attack
+    }
 }

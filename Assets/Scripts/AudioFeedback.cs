@@ -16,7 +16,6 @@ public class AudioFeedback : MonoBehaviour {
     [Range(0, 1)] public float volume = 1f;
 
     public void PlayClip() {
-        Debug.Log("Playing clip");
         if(clip == null) return;
         targetAudioSource.volume = volume;
         targetAudioSource.PlayOneShot(clip);

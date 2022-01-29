@@ -11,7 +11,7 @@ Date:       29-01-2022 00:03:27
 ================================================================*/
 namespace WeaponSystem {
     
-    public class WeaponStorage : MonoBehaviour {
+    public class WeaponStorage {
 
         private List<WeaponData> _weaponDataList = new List<WeaponData>();
         private int _currentWeaponIndex = -1;

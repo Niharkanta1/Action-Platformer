@@ -793,6 +793,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Agent
       objectReference: {fileID: 0}
+    - target: {fileID: 4072582154841539904, guid: 6e7464763e963a94296c38004c625d75, type: 3}
+      propertyPath: groundMask.m_Bits
+      value: 67648
+      objectReference: {fileID: 0}
+    - target: {fileID: 4072582154841539911, guid: 6e7464763e963a94296c38004c625d75, type: 3}
+      propertyPath: climbingLayerMask.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 9002217675154094460, guid: 6e7464763e963a94296c38004c625d75, type: 3}
+      propertyPath: hittableLayerMask.m_Bits
+      value: 82432
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e7464763e963a94296c38004c625d75, type: 3}
 --- !u!1 &8080020570884917915 stripped

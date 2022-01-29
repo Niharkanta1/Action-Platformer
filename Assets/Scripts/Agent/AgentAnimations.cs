@@ -25,6 +25,7 @@ public class AgentAnimations : MonoBehaviour {
                 Play("idle");
                 break;
             case AnimationType.Attack:
+                Play("attack");
                 break;
             case AnimationType.Run:
                 Play("run");

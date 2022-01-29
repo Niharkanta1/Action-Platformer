@@ -28,10 +28,11 @@ namespace WeaponSystem {
             ToggleWeaponVisibility(false);
         }
 
-        private void ToggleWeaponVisibility(bool val) {
+        public void ToggleWeaponVisibility(bool val) {
             if (val) {
                 SwapWeaponSprite(GetCurrentWeapon().weaponSprite);
             }
+            _spriteRenderer.enabled = val;
         }
 
         public WeaponData GetCurrentWeapon() {
