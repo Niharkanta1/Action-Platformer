@@ -6,6 +6,8 @@ namespace Utils {
         Climb,
         Jump,
         Fall,
-        Attack
+        Attack,
+        Hit,
+        Die
     }
 }

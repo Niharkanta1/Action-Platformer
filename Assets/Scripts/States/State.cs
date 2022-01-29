@@ -62,10 +62,14 @@ public abstract class State : MonoBehaviour {
 
         return false;
     }
-
+    
     public virtual void StateFixedUpdate() {
     }
 
+    public virtual void Die() {
+        Agent.TransitionToState(Agent.stateFactory.GetState(StateType.Die));
+    }
+    
     public void Exit() {
         Agent.agentInput.OnAttack -= HandleAttack;
         Agent.agentInput.OnJumpPressed -= HandleJumpPressed;
@@ -77,5 +81,8 @@ public abstract class State : MonoBehaviour {
 
     protected virtual void ExitState() {
     }
-    
+
+    public virtual void GetHit() {
+        Agent.TransitionToState(Agent.stateFactory.GetState(StateType.Hit));
+    }
 }

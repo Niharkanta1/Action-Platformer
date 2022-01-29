@@ -4,7 +4,8 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "AgentData", menuName = "Agent/Data")]
 public class AgentDataSO : ScriptableObject {
-    
+    [Header("Health")] [Space] public int health = 2;
+
     [Header("Movement data")]
     [Space] 
     public float acceleration = 50; 

@@ -18,16 +18,19 @@ public class Agent : MonoBehaviour {
     public ClimbingDetector climbingDetector;
 
     public State currentState = null, previousState = null;
-    public State idleState;
-    
+
     [HideInInspector]
     public AgentWeaponManager agentWeapon;
 
     public StateFactory stateFactory;
+
+    private Damageable _damageable;
     
     [Header("State debugging:")] public string stateName = "";
     [field: SerializeField]
-    private UnityEvent onRespawnRequired { get; set; }
+    private UnityEvent OnRespawnRequired { get; set; }
+    [field: SerializeField]
+    public UnityEvent OnAgentDie { get; set; }
 
     private void Awake() {
         agentInput = GetComponentInParent<PlayerInput>();
@@ -39,11 +42,18 @@ public class Agent : MonoBehaviour {
         agentWeapon = GetComponentInChildren<AgentWeaponManager>();
         stateFactory = GetComponentInChildren<StateFactory>();
         stateFactory.InitializeStates(this);
+
+        _damageable = GetComponent<Damageable>();
     }
 
     private void Start() {
         agentInput.OnMovement += agentRenderer.FaceDirection;
-        TransitionToState(idleState);
+        InitializeAgent();
+    }
+
+    private void InitializeAgent() {
+        TransitionToState(stateFactory.GetState(StateType.Idle));
+        _damageable.Initialize(agentData.health);
     }
 
     private void Update() {
@@ -74,9 +84,17 @@ public class Agent : MonoBehaviour {
             stateName = currentState.GetType().ToString();
         }
     }
-
+    
     public void AgentDied() {
-        Debug.Log("Player Died!");
-        onRespawnRequired?.Invoke();
+        if (_damageable.CurrentHealth > 0) {
+            rb.velocity = Vector2.zero;
+            OnRespawnRequired?.Invoke();
+        } else {
+            currentState.Die();
+        }
+    }
+
+    public void GetHit() {
+        currentState.GetHit();
     }
 }

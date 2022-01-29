@@ -1,5 +1,51 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &525901883196941728
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9155265740325168196}
+  - component: {fileID: 1114455296183473231}
+  m_Layer: 0
+  m_Name: HitFeedback
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9155265740325168196
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525901883196941728}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4072582153392286301}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1114455296183473231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525901883196941728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dc157e17bbee77468d7af24066579d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: 2d9784548ba836e43b4c5722046222cb, type: 3}
+  targetAudioSource: {fileID: 1814489166440384469}
+  volume: 1
 --- !u!1 &2404289293251264980
 GameObject:
   m_ObjectHideFlags: 0
@@ -61,6 +107,8 @@ GameObject:
   - component: {fileID: 4072582153392286289}
   - component: {fileID: 4072582153392286288}
   - component: {fileID: 9002217675154094460}
+  - component: {fileID: 1370713817998358047}
+  - component: {fileID: 8949341105873263865}
   - component: {fileID: 4927280958196551288}
   m_Layer: 0
   m_Name: States
@@ -83,6 +131,8 @@ Transform:
   - {fileID: 3739423574102620423}
   - {fileID: 2710555873362142824}
   - {fileID: 1076281632121752930}
+  - {fileID: 9155265740325168196}
+  - {fileID: 5443918488365103}
   m_Father: {fileID: 4072582153959650977}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -98,17 +148,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e62cd4eaf4310f141ba1878836347438, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpState: {fileID: 4072582153392286290}
-  fallState: {fileID: 4072582153392286289}
-  climbState: {fileID: 4072582153392286288}
-  attackState: {fileID: 9002217675154094460}
   onEnter:
     m_PersistentCalls:
       m_Calls: []
   onExit:
     m_PersistentCalls:
       m_Calls: []
-  moveState: {fileID: 4072582153392286300}
 --- !u!114 &4072582153392286300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,10 +166,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74eda8e62098b3944a2ce7ed103e2e82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpState: {fileID: 4072582153392286290}
-  fallState: {fileID: 4072582153392286289}
-  climbState: {fileID: 4072582153392286288}
-  attackState: {fileID: 9002217675154094460}
   onEnter:
     m_PersistentCalls:
       m_Calls: []
@@ -132,7 +173,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   movementData: {fileID: 0}
-  idleState: {fileID: 4072582153392286291}
   onStep:
     m_PersistentCalls:
       m_Calls: []
@@ -148,10 +188,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 389e309b05d40904d952284a4847123e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpState: {fileID: 0}
-  fallState: {fileID: 4072582153392286289}
-  climbState: {fileID: 4072582153392286288}
-  attackState: {fileID: 9002217675154094460}
   onEnter:
     m_PersistentCalls:
       m_Calls: []
@@ -159,7 +195,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   movementData: {fileID: 0}
-  idleState: {fileID: 4072582153392286291}
   onStep:
     m_PersistentCalls:
       m_Calls: []
@@ -175,10 +210,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31569648268840b4bb4a1513926b6571, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpState: {fileID: 4072582153392286290}
-  fallState: {fileID: 0}
-  climbState: {fileID: 4072582153392286288}
-  attackState: {fileID: 9002217675154094460}
   onEnter:
     m_PersistentCalls:
       m_Calls: []
@@ -186,7 +217,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   movementData: {fileID: 0}
-  idleState: {fileID: 4072582153392286291}
   onStep:
     m_PersistentCalls:
       m_Calls: []
@@ -202,17 +232,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fb3dfe2c49b52e44a2c8b29f859993d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpState: {fileID: 4072582153392286290}
-  fallState: {fileID: 4072582153392286289}
-  climbState: {fileID: 0}
-  attackState: {fileID: 0}
   onEnter:
     m_PersistentCalls:
       m_Calls: []
   onExit:
     m_PersistentCalls:
       m_Calls: []
-  idleState: {fileID: 4072582153392286291}
 --- !u!114 &9002217675154094460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,17 +250,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab032e94b862ebe49a624b8bed525b23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpState: {fileID: 0}
-  fallState: {fileID: 4072582153392286289}
-  climbState: {fileID: 0}
-  attackState: {fileID: 0}
   onEnter:
     m_PersistentCalls:
       m_Calls: []
   onExit:
     m_PersistentCalls:
       m_Calls: []
-  idleState: {fileID: 4072582153392286291}
   hittableLayerMask:
     serializedVersion: 2
     m_Bits: 0
@@ -254,6 +274,67 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1370713817998358047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4072582153392286302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1b6410e94c017842b354f237164cdee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1114455296183473231}
+        m_TargetAssemblyTypeName: AudioFeedback, Assembly-CSharp
+        m_MethodName: PlayClip
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onExit:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &8949341105873263865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4072582153392286302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9580eefaa607eb489c2fc7d9080d9a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1370469334863444439}
+        m_TargetAssemblyTypeName: AudioFeedback, Assembly-CSharp
+        m_MethodName: PlayClip
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onExit:
+    m_PersistentCalls:
+      m_Calls: []
+  timeToWaitBeforeDieAction: 2
 --- !u!114 &4927280958196551288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,6 +353,8 @@ MonoBehaviour:
   climbState: {fileID: 4072582153392286288}
   jumpState: {fileID: 4072582153392286290}
   attackState: {fileID: 9002217675154094460}
+  hitState: {fileID: 1370713817998358047}
+  dieState: {fileID: 8949341105873263865}
 --- !u!1 &4072582153959650979
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,6 +368,7 @@ GameObject:
   - component: {fileID: 4072582153959650976}
   - component: {fileID: 4072582153959650983}
   - component: {fileID: 4072582153959650982}
+  - component: {fileID: 8635086139310525598}
   m_Layer: 3
   m_Name: Agent
   m_TagString: Player
@@ -351,24 +435,15 @@ MonoBehaviour:
   climbingDetector: {fileID: 0}
   currentState: {fileID: 0}
   previousState: {fileID: 0}
-  idleState: {fileID: 4072582153392286291}
   agentWeapon: {fileID: 0}
+  stateFactory: {fileID: 0}
   stateName: 
-  <onRespawnRequired>k__BackingField:
+  <OnRespawnRequired>k__BackingField:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: RespawnSystem.RespawnPointManager, Assembly-CSharp
-        m_MethodName: Respawn
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 4072582153959650979}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+  <OnAgentDie>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &4072582153959650983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -400,6 +475,59 @@ CapsuleCollider2D:
   m_Offset: {x: -0.036, y: -0.038}
   m_Size: {x: 0.72, y: 1.2125444}
   m_Direction: 0
+--- !u!114 &8635086139310525598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4072582153959650979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d90e1f0c00951ca48bb0ec59920dece9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 0
+  _currentHealth: 0
+  OnGetHit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4072582153959650976}
+        m_TargetAssemblyTypeName: Agent, Assembly-CSharp
+        m_MethodName: GetHit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnDie:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4072582153959650976}
+        m_TargetAssemblyTypeName: Agent, Assembly-CSharp
+        m_MethodName: AgentDied
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnAddHealth:
+    m_PersistentCalls:
+      m_Calls: []
+  OnHealthValueChange:
+    m_PersistentCalls:
+      m_Calls: []
+  OnInitializeMaxHealth:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &4072582154491271287
 GameObject:
   m_ObjectHideFlags: 0
@@ -900,3 +1028,49 @@ MonoBehaviour:
   onWeaponPickup:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &9086829437237522996
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5443918488365103}
+  - component: {fileID: 1370469334863444439}
+  m_Layer: 0
+  m_Name: DieFeedback
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5443918488365103
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9086829437237522996}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4072582153392286301}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1370469334863444439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9086829437237522996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dc157e17bbee77468d7af24066579d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: f25b087c805825847b8e4c620d9bc989, type: 3}
+  targetAudioSource: {fileID: 1814489166440384469}
+  volume: 1

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using RespawnSystem;
 using UnityEngine;
 
 public class DestroyFallingObjects : MonoBehaviour {
@@ -15,12 +16,19 @@ public class DestroyFallingObjects : MonoBehaviour {
     private void FixedUpdate() {
         Collider2D collider = Physics2D.OverlapBox(transform.position, size, 0, objectsToDestroyLayerMask);
         if (collider == null) return;
-        var agent = collider.GetComponent<Agent>();
+        Agent agent = collider.GetComponent<Agent>();
         if (agent == null) {
             Destroy(collider.gameObject);
             return;
         }
 
+        var damageable = agent.GetComponent<Damageable>();
+        if (damageable != null) {
+            damageable.GetHit(1);
+            if (damageable.CurrentHealth == 0 && agent.CompareTag("Player")) {
+                agent.GetComponent<RespawnHelper>().RespawnPlayer();
+            }
+        }
         agent.AgentDied();
     }
 

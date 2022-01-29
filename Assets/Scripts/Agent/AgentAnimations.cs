@@ -18,8 +18,10 @@ public class AgentAnimations : MonoBehaviour {
     public void PlayAnimation(AnimationType animationType) {
         switch (animationType) {
             case AnimationType.Die:
+                Play("die");
                 break;
             case AnimationType.Hit:
+                Play("hit");
                 break;
             case AnimationType.Idle:
                 Play("idle");

@@ -46,6 +46,7 @@ public class AttackState : State {
     }
 
     protected override void ExitState() { 
+        Agent.animationManager.ResetEvents();
         Agent.agentWeapon.ToggleWeaponVisibility(false);
     }
 

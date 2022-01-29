@@ -14,7 +14,7 @@ Date:       29-01-2022 19:52:50
 
 public class StateFactory : MonoBehaviour {
 
-    [SerializeField] private State idleState, moveState, fallState, climbState, jumpState, attackState;
+    [SerializeField] private State idleState, moveState, fallState, climbState, jumpState, attackState, hitState, dieState;
 
     public State GetState(StateType stateType) => stateType switch {
         StateType.Idle => idleState,
@@ -23,6 +23,8 @@ public class StateFactory : MonoBehaviour {
         StateType.Jump => jumpState,
         StateType.Fall => fallState,
         StateType.Attack => attackState,
+        StateType.Hit => hitState,
+        StateType.Die => dieState,
         _ => throw new ArgumentOutOfRangeException(nameof(stateType), stateType, $"State Type Not Found::{stateType}")
     };
 
