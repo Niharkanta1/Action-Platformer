@@ -4,7 +4,6 @@ using Utils;
 using UnityEngine;
 
 public class IdleState : State {
-    public State moveState;
     
     protected override void EnterState() {
         Agent.animationManager.PlayAnimation(AnimationType.Idle);
@@ -16,9 +15,9 @@ public class IdleState : State {
     protected override void HandleMovement(Vector2 input) {
 
         if (Agent.climbingDetector.CanClimb && Mathf.Abs(input.y) > 0) {
-            Agent.TransitionToState(climbState);
+            Agent.TransitionToState(Agent.stateFactory.GetState(StateType.Climb));
         } else if (Mathf.Abs(input.x) > 0) { 
-            Agent.TransitionToState(moveState);
+            Agent.TransitionToState(Agent.stateFactory.GetState(StateType.Move));
         }
     }
 }

@@ -20,9 +20,9 @@ public class FallState : MovementState {
         CalculateVelocity();
         SetPlayerVelocity();
         if (Agent.groundDetector.isGrounded) {
-            Agent.TransitionToState(idleState);
+            Agent.TransitionToState(Agent.stateFactory.GetState(StateType.Idle));
         } else if (Agent.climbingDetector.CanClimb && Mathf.Abs(Agent.agentInput.MovementVector.y) > 0) {
-            Agent.TransitionToState(climbState);
+            Agent.TransitionToState(Agent.stateFactory.GetState(StateType.Climb));
         }
     }
 }

@@ -9,7 +9,6 @@ public class MovementState : State {
     
     [SerializeField]
     protected MovementData movementData;
-    public State idleState;
 
     public UnityEvent onStep;
 
@@ -37,9 +36,9 @@ public class MovementState : State {
         CalculateVelocity();
         SetPlayerVelocity();
         if (Mathf.Abs(Agent.rb.velocity.x) < 0.01f) {
-            Agent.TransitionToState(idleState);
+            Agent.TransitionToState(Agent.stateFactory.GetState(StateType.Idle));
         } else if (Agent.climbingDetector.CanClimb && Mathf.Abs(Agent.agentInput.MovementVector.y) > 0) {
-            Agent.TransitionToState(climbState);
+            Agent.TransitionToState(Agent.stateFactory.GetState(StateType.Climb));
         }
     }
 

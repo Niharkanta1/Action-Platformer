@@ -16,7 +16,6 @@ public class FragileBlock : MonoBehaviour, IHittable {
 
     public UnityEvent onHit;
     
-    
     public void GetHit(GameObject agentGameObject, int weaponDamage) {
         onHit?.Invoke();
     }

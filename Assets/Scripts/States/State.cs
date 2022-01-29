@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using Utils;
 
 public abstract class State : MonoBehaviour {
-    [SerializeField] protected State jumpState, fallState, climbState, attackState;
-    
     protected Agent Agent;
     public UnityEvent onEnter, onExit;
 
@@ -37,7 +36,7 @@ public abstract class State : MonoBehaviour {
 
     private void TestJumpTransition() {
         if (Agent.groundDetector.isGrounded) {
-            Agent.TransitionToState(jumpState);
+            Agent.TransitionToState(Agent.stateFactory.GetState(StateType.Jump));
         }
     }
 
@@ -47,7 +46,7 @@ public abstract class State : MonoBehaviour {
 
     private void TestAttackTransition() {
         if (Agent.agentWeapon.CanIUseWeapon(Agent.groundDetector.isGrounded)) {
-            Agent.TransitionToState(attackState);
+            Agent.TransitionToState(Agent.stateFactory.GetState(StateType.Attack));
         }
     }
 
@@ -57,7 +56,7 @@ public abstract class State : MonoBehaviour {
 
     protected bool TestFallTransition() {
         if (Agent.groundDetector.isGrounded == false) {
-            Agent.TransitionToState(fallState);
+            Agent.TransitionToState(Agent.stateFactory.GetState(StateType.Fall));
             return true;
         }
 

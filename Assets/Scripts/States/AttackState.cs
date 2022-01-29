@@ -14,13 +14,12 @@ Date:       29-01-2022 15:48:17
 
 public class AttackState : State {
 
-    [SerializeField] protected State idleState;
     public LayerMask hittableLayerMask;
 
     public UnityEvent<AudioClip> onWeaponSound;
 
     private bool _showGizmos = false;
-    private Vector3 direction;
+    private Vector3 _direction;
     
     protected override void EnterState() {
         Agent.animationManager.ResetEvents();
@@ -29,7 +28,7 @@ public class AttackState : State {
         Agent.animationManager.onAnimationAction.AddListener(PerformAttack);
         
         Agent.agentWeapon.ToggleWeaponVisibility(true);
-        direction = Agent.transform.right * (Agent.transform.localScale.x > 0 ? 1 : -1);
+        _direction = Agent.transform.right * (Agent.transform.localScale.x > 0 ? 1 : -1);
         if (Agent.groundDetector.isGrounded) {
             Agent.rb.velocity = Vector2.zero;
         }
@@ -38,12 +37,12 @@ public class AttackState : State {
     private void PerformAttack() {
         onWeaponSound?.Invoke(Agent.agentWeapon.GetCurrentWeapon().weaponSwingSound);
         Agent.animationManager.onAnimationAction.RemoveListener(PerformAttack);
-        Agent.agentWeapon.GetCurrentWeapon().PerformAttack(Agent, hittableLayerMask, direction);
+        Agent.agentWeapon.GetCurrentWeapon().PerformAttack(Agent, hittableLayerMask, _direction);
     }
 
     private void TransitionToIdleState() {
         Agent.animationManager.onAnimationEnd.RemoveListener(TransitionToIdleState);
-        Agent.TransitionToState(Agent.groundDetector.isGrounded ? idleState : fallState);
+        Agent.TransitionToState(Agent.groundDetector.isGrounded ? Agent.stateFactory.GetState(StateType.Idle) : Agent.stateFactory.GetState(StateType.Fall));
     }
 
     protected override void ExitState() { 
@@ -55,7 +54,7 @@ public class AttackState : State {
             return;
         Gizmos.color = Color.red;
         var pos = Agent.agentWeapon.transform.position;
-        Agent.agentWeapon.GetCurrentWeapon().DrawWeaponGizmo(pos, direction);
+        Agent.agentWeapon.GetCurrentWeapon().DrawWeaponGizmo(pos, _direction);
     }
 
     protected override void HandleAttack() {

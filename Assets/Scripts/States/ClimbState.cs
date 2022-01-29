@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class ClimbState : State {
 
-    [SerializeField] protected State idleState;
     private float _previousGravityScale = 0;
 
     protected override void EnterState() {
@@ -17,7 +16,7 @@ public class ClimbState : State {
     }
 
     protected override void HandleJumpPressed() {
-        Agent.TransitionToState(jumpState);
+        Agent.TransitionToState(Agent.stateFactory.GetState(StateType.Jump));
     }
 
     public override void StateUpdate() {
@@ -30,7 +29,7 @@ public class ClimbState : State {
             Agent.rb.velocity = Vector2.zero;
         }
         if (Agent.climbingDetector.CanClimb == false || (Agent.groundDetector.isGrounded && Agent.agentInput.MovementVector.y < 0)) {
-            Agent.TransitionToState(idleState);
+            Agent.TransitionToState(Agent.stateFactory.GetState(StateType.Idle));
         }
     }
 

@@ -61,6 +61,7 @@ GameObject:
   - component: {fileID: 4072582153392286289}
   - component: {fileID: 4072582153392286288}
   - component: {fileID: 9002217675154094460}
+  - component: {fileID: 4927280958196551288}
   m_Layer: 0
   m_Name: States
   m_TagString: Untagged
@@ -253,6 +254,24 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &4927280958196551288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4072582153392286302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e72cff6076cfba4495d5ee98b858449, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  idleState: {fileID: 4072582153392286291}
+  moveState: {fileID: 4072582153392286300}
+  fallState: {fileID: 4072582153392286289}
+  climbState: {fileID: 4072582153392286288}
+  jumpState: {fileID: 4072582153392286290}
+  attackState: {fileID: 9002217675154094460}
 --- !u!1 &4072582153959650979
 GameObject:
   m_ObjectHideFlags: 0
@@ -454,7 +473,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -678702779
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 7495373321489435158, guid: 31e82f5eaa4e3b64082ddb3d16a637af, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -847,7 +866,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1959077347
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: dc1a5260470ab9d43a040c4e9c89bead, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
