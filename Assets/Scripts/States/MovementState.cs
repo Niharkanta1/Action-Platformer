@@ -17,7 +17,6 @@ public class MovementState : State {
     }
 
     protected override void EnterState() {
-        base.EnterState();
         Agent.animationManager.PlayAnimation(AnimationType.Run);
         Agent.animationManager.onAnimationAction.AddListener(() => onStep.Invoke());
         movementData.horizontalMovementDirection = 0;
@@ -37,7 +36,7 @@ public class MovementState : State {
         SetPlayerVelocity();
         if (Mathf.Abs(Agent.rb.velocity.x) < 0.01f) {
             Agent.TransitionToState(Agent.stateFactory.GetState(StateType.Idle));
-        } else if (Agent.climbingDetector.CanClimb && Mathf.Abs(Agent.agentInput.MovementVector.y) > 0) {
+        } else if (Agent.climbingDetector.CanClimb && Mathf.Abs(Agent.AgentInput.MovementVector.y) > 0) {
             Agent.TransitionToState(Agent.stateFactory.GetState(StateType.Climb));
         }
     }
@@ -47,16 +46,16 @@ public class MovementState : State {
     }
 
     protected void CalculateVelocity() {
-        CalculateSpeed(Agent.agentInput.MovementVector, movementData);
+        CalculateSpeed(Agent.AgentInput.MovementVector, movementData);
         CalculateHorizontalDirection(movementData);
         movementData.currentVelocity = Vector3.right * movementData.horizontalMovementDirection * movementData.currentSpeed;
         movementData.currentVelocity.y = Agent.rb.velocity.y;
     }
 
     protected void CalculateHorizontalDirection(MovementData data) {
-        if (Agent.agentInput.MovementVector.x > 0) {
+        if (Agent.AgentInput.MovementVector.x > 0) {
             data.horizontalMovementDirection = 1;
-        } else if (Agent.agentInput.MovementVector.x < 0) {
+        } else if (Agent.AgentInput.MovementVector.x < 0) {
             data.horizontalMovementDirection = -1;
         }
     }

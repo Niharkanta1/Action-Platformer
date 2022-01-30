@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dc157e17bbee77468d7af24066579d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: 2d9784548ba836e43b4c5722046222cb, type: 3}
+  clip: {fileID: 0}
   targetAudioSource: {fileID: 1814489166440384469}
   volume: 1
 --- !u!1 &2404289293251264980
@@ -175,7 +175,19 @@ MonoBehaviour:
   movementData: {fileID: 0}
   onStep:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1765914023671749927}
+        m_TargetAssemblyTypeName: AudioFeedback, Assembly-CSharp
+        m_MethodName: PlayClip
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4072582153392286290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -369,9 +381,9 @@ GameObject:
   - component: {fileID: 4072582153959650983}
   - component: {fileID: 4072582153959650982}
   - component: {fileID: 8635086139310525598}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Agent
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -426,9 +438,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b326920561d0abf418e65b1b0ac6f7cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agentData: {fileID: 11400000, guid: 7106e452bba07584b9c71d3388eba640, type: 2}
+  agentData: {fileID: 0}
   rb: {fileID: 0}
-  agentInput: {fileID: 0}
   animationManager: {fileID: 0}
   agentRenderer: {fileID: 0}
   groundDetector: {fileID: 0}
@@ -1071,6 +1082,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dc157e17bbee77468d7af24066579d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: f25b087c805825847b8e4c620d9bc989, type: 3}
+  clip: {fileID: 0}
   targetAudioSource: {fileID: 1814489166440384469}
   volume: 1

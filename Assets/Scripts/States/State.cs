@@ -13,10 +13,10 @@ public abstract class State : MonoBehaviour {
     }
 
     public void Enter() {
-        Agent.agentInput.OnAttack += HandleAttack;
-        Agent.agentInput.OnJumpPressed += HandleJumpPressed;
-        Agent.agentInput.OnJumpReleased += HandleJumpReleased;
-        Agent.agentInput.OnMovement += HandleMovement;
+        Agent.AgentInput.OnAttack += HandleAttack;
+        Agent.AgentInput.OnJumpPressed += HandleJumpPressed;
+        Agent.AgentInput.OnJumpReleased += HandleJumpReleased;
+        Agent.AgentInput.OnMovement += HandleMovement;
         onEnter?.Invoke();
         EnterState();
     }
@@ -71,10 +71,10 @@ public abstract class State : MonoBehaviour {
     }
     
     public void Exit() {
-        Agent.agentInput.OnAttack -= HandleAttack;
-        Agent.agentInput.OnJumpPressed -= HandleJumpPressed;
-        Agent.agentInput.OnJumpReleased -= HandleJumpReleased;
-        Agent.agentInput.OnMovement -= HandleMovement;
+        Agent.AgentInput.OnAttack -= HandleAttack;
+        Agent.AgentInput.OnJumpPressed -= HandleJumpPressed;
+        Agent.AgentInput.OnJumpReleased -= HandleJumpReleased;
+        Agent.AgentInput.OnMovement -= HandleMovement;
         onExit?.Invoke();
         ExitState();
     }

@@ -20,15 +20,15 @@ public class ClimbState : State {
     }
 
     public override void StateUpdate() {
-        if (Agent.agentInput.MovementVector.magnitude > 0) {
+        if (Agent.AgentInput.MovementVector.magnitude > 0) {
             Agent.animationManager.StartAnimation();
-            Agent.rb.velocity = new Vector2(Agent.agentInput.MovementVector.x * Agent.agentData.climbHorizontalSpeed,
-                Agent.agentInput.MovementVector.y * Agent.agentData.climbVerticalSpeed);
+            Agent.rb.velocity = new Vector2(Agent.AgentInput.MovementVector.x * Agent.agentData.climbHorizontalSpeed,
+                Agent.AgentInput.MovementVector.y * Agent.agentData.climbVerticalSpeed);
         } else {
             Agent.animationManager.StopAnimation();
             Agent.rb.velocity = Vector2.zero;
         }
-        if (Agent.climbingDetector.CanClimb == false || (Agent.groundDetector.isGrounded && Agent.agentInput.MovementVector.y < 0)) {
+        if (Agent.climbingDetector.CanClimb == false || (Agent.groundDetector.isGrounded && Agent.AgentInput.MovementVector.y < 0)) {
             Agent.TransitionToState(Agent.stateFactory.GetState(StateType.Idle));
         }
     }

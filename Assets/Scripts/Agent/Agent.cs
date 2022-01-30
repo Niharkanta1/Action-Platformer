@@ -11,7 +11,7 @@ public class Agent : MonoBehaviour {
 
     public AgentDataSO agentData;
     public Rigidbody2D rb;
-    public PlayerInput agentInput;
+    public IAgentInput AgentInput;
     public AgentAnimations animationManager;
     public AgentRenderer agentRenderer;
     public GroundDetector groundDetector;
@@ -33,7 +33,7 @@ public class Agent : MonoBehaviour {
     public UnityEvent OnAgentDie { get; set; }
 
     private void Awake() {
-        agentInput = GetComponentInParent<PlayerInput>();
+        AgentInput = GetComponentInParent<IAgentInput>();
         rb = GetComponent<Rigidbody2D>();
         animationManager = GetComponentInChildren<AgentAnimations>();
         agentRenderer = GetComponentInChildren<AgentRenderer>();
@@ -47,7 +47,7 @@ public class Agent : MonoBehaviour {
     }
 
     private void Start() {
-        agentInput.OnMovement += agentRenderer.FaceDirection;
+        AgentInput.OnMovement += agentRenderer.FaceDirection;
         InitializeAgent();
     }
 
@@ -72,7 +72,7 @@ public class Agent : MonoBehaviour {
         if (currentState != null) {
             currentState.Exit();
         }
-
+        
         previousState = currentState;
         currentState = newState;
         currentState.Enter();
@@ -87,7 +87,7 @@ public class Agent : MonoBehaviour {
     
     public void AgentDied() {
         if (_damageable.CurrentHealth > 0) {
-            rb.velocity = Vector2.zero;
+            rb.velocity = Vector2.zero; 
             OnRespawnRequired?.Invoke();
         } else {
             currentState.Die();

@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PlayerInput : MonoBehaviour {
-    
-    [field: SerializeField] 
+public class PlayerInput : MonoBehaviour, IAgentInput {
+
+    [field: SerializeField]
     public Vector2 MovementVector { get; private set; }
 
     public event Action OnAttack, OnJumpPressed, OnJumpReleased, OnWeaponChange;
@@ -17,7 +17,7 @@ public class PlayerInput : MonoBehaviour {
     private void Update() {
         if (Time.timeScale > 0) {
             GetMovementInput();
-            GetJumpInput();
+            GetJumpInput(); 
             GetAttackInput();
             GetWeaponSwapInput();
         }
@@ -30,7 +30,7 @@ public class PlayerInput : MonoBehaviour {
             OnWeaponChange?.Invoke();
         }
     }
-    
+
     private void GetWeaponSwapInput() {
         if (Input.GetKeyDown(KeyCode.E)) {
             onMenuKeyPressed?.Invoke();
