@@ -6,7 +6,7 @@ using UnityEngine.Serialization;
 using Utils;
 
 /*===============================================================
-Product:    Udemy 2D Platformer
+Product:    Action 2D Platformer
 Developer:  Nihar
 Company:    DeadW0Lf Games
 Date:       29-01-2022 19:52:50

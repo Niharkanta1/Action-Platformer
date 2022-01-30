@@ -6,7 +6,7 @@ using UnityEngine.Events;
 using Utils;
 
 /*===============================================================
-Product:    Udemy 2D Platformer
+Product:    Action 2D Platformer
 Developer:  Nihar
 Company:    DeadW0Lf Games
 Date:       29-01-2022 15:48:17

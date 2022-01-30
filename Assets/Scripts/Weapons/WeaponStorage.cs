@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEngine;
 
 /*===============================================================
-Product:    Udemy 2D Platformer
+Product:    Action 2D Platformer
 Developer:  Nihar
 Company:    DeadW0Lf Games
 Date:       29-01-2022 00:03:27

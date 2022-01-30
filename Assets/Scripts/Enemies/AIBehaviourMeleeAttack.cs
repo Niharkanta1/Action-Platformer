@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /*===============================================================
-Product:    Udemy 2D Platformer
+Product:    Action 2D Platformer
 Developer:  Nihar
 Company:    DeadW0Lf Games
 Date:       30-01-2022 21:39:14
