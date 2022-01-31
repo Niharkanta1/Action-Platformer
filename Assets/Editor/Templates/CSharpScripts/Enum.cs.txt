@@ -1,0 +1,13 @@
+﻿using System;
+
+/*=============================================
+Product:    #PROJECTNAME#
+Developer:  #USER#
+Company:    #COMPANY#
+Date:       #CREATIONDATE#
+================================================*/
+
+[Serializable]
+public enum #SCRIPTNAME# {
+    
+}

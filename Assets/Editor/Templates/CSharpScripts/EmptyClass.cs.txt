@@ -1,0 +1,16 @@
+﻿using System;
+
+/*=============================================
+Product:    #PROJECTNAME#
+Developer:  #USER#
+Company:    #COMPANY#
+Date:       #CREATIONDATE#
+================================================*/
+
+[Serializable]
+public class #SCRIPTNAME# {
+
+    public #SCRIPTNAME#() {
+	
+	}
+}

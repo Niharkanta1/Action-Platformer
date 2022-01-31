@@ -24,6 +24,7 @@ public class KeywordReplace : UnityEditor.AssetModificationProcessor {
         fileContent = fileContent.Replace( "#PROJECTNAME#", PlayerSettings.productName );
         fileContent = fileContent.Replace( "#COMPANY#", PlayerSettings.companyName);
         fileContent = fileContent.Replace( "#USER#", "Nihar");
+        fileContent = fileContent.Replace("#DATE#", System.DateTime.Now.ToString("dd/MMM/yyyy"));
  
         System.IO.File.WriteAllText( path, fileContent );
         AssetDatabase.Refresh();

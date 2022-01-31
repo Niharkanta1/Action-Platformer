@@ -1,0 +1,12 @@
+﻿using System;
+
+/*=============================================
+Product:    #PROJECTNAME#
+Developer:  #USER#
+Company:    #COMPANY#
+Date:       #CREATIONDATE#
+================================================*/
+
+public interface #SCRIPTNAME# {
+    
+}

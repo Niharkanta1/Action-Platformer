@@ -1,0 +1,14 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+/*=============================================
+Product:    #PROJECTNAME#
+Developer:  #USER#
+Company:    #COMPANY#
+Date:       #CREATIONDATE#
+================================================*/
+    
+public class #SCRIPTNAME# : MonoBehaviour {
+
+}

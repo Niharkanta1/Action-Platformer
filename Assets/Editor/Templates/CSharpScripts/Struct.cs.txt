@@ -1,0 +1,15 @@
+﻿using System;
+
+/*=============================================
+Product:    #PROJECTNAME#
+Developer:  #USER#
+Company:    #COMPANY#
+Date:       #CREATIONDATE#
+================================================*/
+
+public struct #SCRIPTNAME# {
+
+    public #SCRIPTNAME#(string s) {
+	
+	}
+}
