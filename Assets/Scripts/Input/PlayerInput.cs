@@ -27,13 +27,13 @@ public class PlayerInput : MonoBehaviour, IAgentInput {
 
     private void GetMenuInput() {
         if (Input.GetKeyDown(menuKey)) {
-            OnWeaponChange?.Invoke();
+            onMenuKeyPressed?.Invoke();
         }
     }
 
     private void GetWeaponSwapInput() {
         if (Input.GetKeyDown(KeyCode.E)) {
-            onMenuKeyPressed?.Invoke();
+            OnWeaponChange?.Invoke();
         }
     }
 

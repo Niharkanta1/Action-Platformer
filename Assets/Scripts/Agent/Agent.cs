@@ -49,6 +49,12 @@ public class Agent : MonoBehaviour {
     private void Start() {
         AgentInput.OnMovement += agentRenderer.FaceDirection;
         InitializeAgent();
+        AgentInput.OnWeaponChange += SwapWeapon;
+    }
+
+    private void SwapWeapon() {
+        if(agentWeapon == null) return;
+        agentWeapon.SwapWeapon();
     }
 
     private void InitializeAgent() {
@@ -96,5 +102,10 @@ public class Agent : MonoBehaviour {
 
     public void GetHit() {
         currentState.GetHit();
+    }
+
+    public void PickUp(WeaponData weaponData) {
+        if(agentWeapon == null) return;
+        agentWeapon.PickUpWeapon(weaponData);
     }
 }
