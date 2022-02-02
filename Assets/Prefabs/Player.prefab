@@ -688,6 +688,7 @@ GameObject:
   - component: {fileID: 8080020569938466667}
   - component: {fileID: 8080020569938466665}
   - component: {fileID: 8080020569938466666}
+  - component: {fileID: 5262749351545335394}
   m_Layer: 0
   m_Name: PointsText
   m_TagString: Untagged
@@ -813,6 +814,21 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5262749351545335394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8080020569938466660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15ba6323a44b53a4d9bd036e7d0d99ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 8080020569938466666}
+  fontAnimationTime: 0.3
+  fontAnimationSize: 80
 --- !u!1 &8080020569966485405
 GameObject:
   m_ObjectHideFlags: 0
@@ -1197,7 +1213,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onTextChange:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5262749351545335394}
+        m_TargetAssemblyTypeName: DFG.UI.UIScaleTextFont, Assembly-CSharp
+        m_MethodName: PlayAnimation
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8080020571714592338
 GameObject:
   m_ObjectHideFlags: 0
@@ -1878,6 +1906,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b326920561d0abf418e65b1b0ac6f7cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &5875812451094936557 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1814489166440384469, guid: 6e7464763e963a94296c38004c625d75, type: 3}
+  m_PrefabInstance: {fileID: 5234669317398592568}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &5774882943335407903 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1765914023671749927, guid: 6e7464763e963a94296c38004c625d75, type: 3}
@@ -1889,11 +1922,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dc157e17bbee77468d7af24066579d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!82 &5875812451094936557 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 1814489166440384469, guid: 6e7464763e963a94296c38004c625d75, type: 3}
-  m_PrefabInstance: {fileID: 5234669317398592568}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &8080020570884917917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1906,6 +1934,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 155251b7efc7f8f4ba5cd57a852e03f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6239933274274676654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8080020570884917915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 735b05af941c97a4cadc61db58d8c6ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onPointsValueChange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8080020571702341141}
+        m_TargetAssemblyTypeName: ScoreUI, Assembly-CSharp
+        m_MethodName: SetPoints
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onPickUpPoints:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6941007410974107414}
+        m_TargetAssemblyTypeName: AudioFeedback, Assembly-CSharp
+        m_MethodName: PlayClip
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &8080020569919330696
 PrefabInstance:
   m_ObjectHideFlags: 0
