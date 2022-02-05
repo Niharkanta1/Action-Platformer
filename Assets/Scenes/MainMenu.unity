@@ -746,7 +746,6 @@ MonoBehaviour:
   cloudsPrefabs:
   - {fileID: 5595640657855703822, guid: ae56cdede73f94c45b97656b3ab246b1, type: 3}
   - {fileID: 8110009867091378883, guid: 6f61fb56754b7df42993b7f96eb2ee1c, type: 3}
-  - {fileID: 8445111501277236086, guid: 8285b864506cea04d9d19b89974cc6d6, type: 3}
   cloudSpeed: 70
   scaleModifier: 0.5
   canvas: {fileID: 1778706033}
@@ -1311,8 +1310,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
-  m_RaycastTarget: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
