@@ -50,7 +50,8 @@ namespace WeaponSystem {
         }
 
         public void AddWeaponData(WeaponData weaponData) {
-            if(_weaponStorage.AddWeaponData(weaponData) == false)
+            Debug.Log("Adding weapon Data:", weaponData);
+            if(weaponData == null || _weaponStorage.AddWeaponData(weaponData) == false)
                 return;
             if (_weaponStorage.WeaponCount == 2) {
                 onMultipleWeapons?.Invoke();

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.UI;
 
 /*===============================================================
 Product:    Action 2D Platformer
@@ -25,6 +26,7 @@ namespace DWG.UI {
         private Sequence _sequence;
 
         private void Start() {
+            if (element.GetComponent<Button>().interactable == false) return;
             _sequence = DOTween.Sequence()
                 .Append(element.DOShakeRotation(animationTime, shakeStrength, vibrato, randomness, fadeOut));
             _sequence.SetLoops(-1, LoopType.Restart);

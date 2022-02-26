@@ -23,6 +23,7 @@ namespace RespawnSystem {
         }
 
         public void Respawn(GameObject objectToRespawn) {
+            _currentRespawnPoint.SetPlayerGameObject(objectToRespawn);
             _currentRespawnPoint.RespawnObject();
             objectToRespawn.SetActive(true);
         }

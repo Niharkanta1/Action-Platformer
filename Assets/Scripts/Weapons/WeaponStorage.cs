@@ -38,7 +38,7 @@ namespace WeaponSystem {
         }
 
         public List<string> GetPlayerWeaponNames() {
-            return _weaponDataList.Select(weapon => weapon.name).ToList();
+            return _weaponDataList.Select(weapon => weapon.weaponName).ToList();
         }
     }
     

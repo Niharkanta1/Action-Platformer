@@ -34,12 +34,12 @@ namespace DWG.Levels {
             LoadSceneWithIndex(winSceneBuildIndex);
         }
 
-        private int GetNextLevelIndex() {
+        public int GetNextLevelIndex() {
             int index = SceneManager.GetActiveScene().buildIndex + 1;
             return index < SceneManager.sceneCountInBuildSettings ? index : winSceneBuildIndex;
         }
 
-        private void LoadSceneWithIndex(int index) {
+        public void LoadSceneWithIndex(int index) {
             SceneManager.LoadScene(index);
         }
 
