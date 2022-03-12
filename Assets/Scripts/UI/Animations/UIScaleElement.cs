@@ -25,6 +25,10 @@ namespace DWG.UI {
 
         private void Start() {
             _baseScale = element.localScale;
+            // Its a temporary UI bug fix while transitioning to next level.
+            if (_baseScale.magnitude <= 0) {
+                _baseScale = Vector3.one; 
+            }
             _endScale = Vector3.one * animationEndScale;
 
             if (!playConstantly) return;
@@ -63,8 +67,7 @@ namespace DWG.UI {
         }
 
         private void OnDestroy() {
-            if(_sequence != null)
-                _sequence.Kill();
+            _sequence?.Kill();
         }
     }
 }
