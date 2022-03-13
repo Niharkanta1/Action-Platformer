@@ -33,9 +33,9 @@ public class GameManager : MonoBehaviour {
             respawnPointManager = FindObjectOfType<RespawnPointManager>();
         }
 
-        if (player == null) {
-            player = FindObjectOfType<PlayerInput>().GetComponentInChildren<Agent>();
-        }
+        /*if (player == null) {
+            player = GameObject.FindWithTag("Player").GetComponent<Agent>();
+        }*/
 
         _levelManagement = FindObjectOfType<LevelManagement>();
     }

@@ -9,6 +9,7 @@ public class GroundDetector : MonoBehaviour {
     public LayerMask groundMask;
     public bool isGrounded = false;
 
+    [SerializeField] private bool isFlying = false;
     [Header("Gizmo Parameters:")] 
     [Range(-2f, 2f)]
     public float boxCastYOffset = -0.1f;
@@ -24,7 +25,15 @@ public class GroundDetector : MonoBehaviour {
         }
     }
 
+    public void ToggleFlying(bool value) {
+        this.isFlying = value;
+    }
+
     public void CheckIfGrounded() {
+        if (isFlying) {
+            isGrounded = true;
+            return;
+        }
         RaycastHit2D rayCastHit = Physics2D.BoxCast(agentCollider.bounds.center + new Vector3(boxCastXOffset, boxCastYOffset, 0), 
             new Vector2(boxCastWidth, boxCastHeight),
             0, 
