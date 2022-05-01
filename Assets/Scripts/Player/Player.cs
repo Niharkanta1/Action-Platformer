@@ -31,7 +31,7 @@ public class Player : MonoBehaviour, ISaveData {
         List<string> weaponNames = SaveSystem.LoadWeapons();
         if (weaponNames != null) {
             foreach (string weaponName in weaponNames) {
-                Debug.Log("Loading weapon: " + weaponName);
+                //Debug.Log("Loading weapon: " + weaponName);
                 WeaponData weapon = _weaponManager.GetWeaponWithName(weaponName);
                 playerWeapons.AddWeaponData(weapon);
             }

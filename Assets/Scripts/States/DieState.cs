@@ -17,6 +17,7 @@ public class DieState : State {
     
     protected override void EnterState() {
         Agent.animationManager.PlayAnimation(AnimationType.Die);
+        //Agent.rb.velocity = Vector2.zero;
         Agent.animationManager.onAnimationEnd.AddListener(WaitBeforeDieAction);
     }
 

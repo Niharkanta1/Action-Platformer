@@ -39,5 +39,9 @@ namespace DWG.AI {
         public void CallOnWeaponChange() {
             OnWeaponChange?.Invoke();
         }
+
+        public void CallAttack() {
+            OnAttack?.Invoke();
+        }
     }
 }

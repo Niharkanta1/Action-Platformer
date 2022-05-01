@@ -26,7 +26,7 @@ namespace DWG.AI {
         public override void PerformAction(AIEnemy enemyAI) {
             if(isWaiting) return;
             if (meleeRangeDetector.PlayerDetected == false) return;
-            enemyAI.CallOnAttack();
+            enemyAI.CallAttack();
             isWaiting = true;
             StartCoroutine(AttackDelayCoroutine());
         }
