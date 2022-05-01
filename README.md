@@ -1,7 +1,8 @@
 # Action-Platformer
 An action platformer with simple platforming and working attack mechanics
 
-This project was created with Unity Engine. 
+This project was created with Unity Engine, as a practice for Udemy course https://www.udemy.com/course/unity-2020-2d-platformer/
+*I dont have any rights on the assets used in this project. This is specifically for education purpose only. For commercial use, please check the original creators licenses.* 
 
 ### Features
 
