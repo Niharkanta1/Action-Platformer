@@ -14,6 +14,7 @@ This project was created with Unity Engine.
 7. Unity events
 8. Save/Reload
 9. Multiple checkpoints system
+10. Enemies and Bosses with Behavioural Design Pattern
 
 # Game Screenshots
 Menu System with Save and Continue features
