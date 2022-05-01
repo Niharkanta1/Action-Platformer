@@ -15,3 +15,19 @@ This project was created with Unity Engine.
 8. Save/Reload
 9. Multiple checkpoints system
 
+# Game Screenshots
+Menu System with Save and Continue features
+![image](https://user-images.githubusercontent.com/7473994/166138984-01a8de45-2b5d-4916-a65a-9f7bde21a89b.png)
+
+Melee and Ranged weapons 
+![image](https://user-images.githubusercontent.com/7473994/166138906-803e7fd4-6973-400d-a248-530e0cff613b.png)
+
+
+![image](https://user-images.githubusercontent.com/7473994/166138936-41f71c18-e920-498e-ad27-9befafbe4b38.png)
+
+Patrolling, Static Ranged and Flying patrolling enemies
+![image](https://user-images.githubusercontent.com/7473994/166138952-a5585ea8-62ad-4ab8-993c-36ecebd28b1b.png)
+
+Boss - Idle, Charge and Attack behaviour
+![image](https://user-images.githubusercontent.com/7473994/166138965-e0c21088-e8b0-425a-bed0-ec7755febdec.png)
+
